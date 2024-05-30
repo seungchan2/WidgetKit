@@ -33,7 +33,6 @@ final class WidgetHelper: CalculateHelperImpl, DogImageHelperImpl {
     func save(count: Int, kind: AppGroup = .calculate) {
         if let defaults = UserDefaults.init(suiteName: AppGroup.app.rawValue) {
             defaults.set(count, forKey: kind.rawValue)
-            defaults.synchronize()
         }
         self.reloadWidget(kind: .calculate)
     }
@@ -41,7 +40,6 @@ final class WidgetHelper: CalculateHelperImpl, DogImageHelperImpl {
     func save(image: UIImage, kind: AppGroup = .image) {
         if let defaults = UserDefaults.init(suiteName: AppGroup.app.rawValue), let data = image.pngData() {
             defaults.set(data, forKey: kind.rawValue)
-            defaults.synchronize()
         }
         self.reloadWidget(kind: kind)
     }

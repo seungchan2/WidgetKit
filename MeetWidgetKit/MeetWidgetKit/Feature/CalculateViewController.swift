@@ -13,7 +13,6 @@ final class CalculateViewController: UIViewController, ViewControllable {
     private lazy var increaseButton = UIButton()
     private lazy var decreaseButton = UIButton()
     private lazy var transitionButton = UIButton()
-    
     private let widgetService: CalculateHelperImpl
     
     init(widgetService: CalculateHelperImpl) {
@@ -73,7 +72,7 @@ private extension CalculateViewController {
         self.view.addSubview(self.increaseButton)
         self.view.addSubview(self.decreaseButton)
         self.view.addSubview(self.transitionButton)
-
+        
         self.increaseButton.translatesAutoresizingMaskIntoConstraints = false
         self.increaseButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50).isActive = true
         self.increaseButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
@@ -84,12 +83,12 @@ private extension CalculateViewController {
         self.decreaseButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -50).isActive = true
         self.decreaseButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         self.decreaseButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        self.decreaseButton.widthAnchor.constraint(equalToConstant: 50).isActive = true 
+        self.decreaseButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
         
         self.transitionButton.translatesAutoresizingMaskIntoConstraints = false
-        self.transitionButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        self.transitionButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        self.transitionButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20).isActive = true
+        self.transitionButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20).isActive = true
+        self.transitionButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -50).isActive = true
         self.transitionButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        self.transitionButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
     }
 }
