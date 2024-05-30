@@ -8,12 +8,11 @@
 import Network
 import UIKit
 
-// 네이밍 변경
-typealias ViewControllable = BackgroundColorSetting & NetworkMonitorImpl
+typealias ViewControllable = ViewControllerSupportImpl & NetworkMonitorImpl
 
-protocol BackgroundColorSetting {}
+protocol ViewControllerSupportImpl {}
 
-extension BackgroundColorSetting where Self: UIViewController {
+extension ViewControllerSupportImpl where Self: UIViewController {
     func setBackgroundColor() {
         self.view.backgroundColor = .white
     }
@@ -33,4 +32,3 @@ extension NetworkMonitorImpl where Self: UIViewController {
         monitor.start(queue: queue)
     }
 }
-

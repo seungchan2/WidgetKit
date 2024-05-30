@@ -8,13 +8,15 @@
 import Combine
 import UIKit
 
-final class ViewController: UIViewController, ViewControllable {
+final class CalculateViewController: UIViewController, ViewControllable {
+    
     private lazy var increaseButton = UIButton()
     private lazy var decreaseButton = UIButton()
+    private lazy var transitionButton = UIButton()
     
-    private let widgetService: WidgetHelperImpl
+    private let widgetService: CalculateHelperImpl
     
-    init(widgetService: WidgetHelperImpl) {
+    init(widgetService: CalculateHelperImpl) {
         self.widgetService = widgetService
         super.init(nibName: nil, bundle: nil)
     }
@@ -36,30 +38,42 @@ final class ViewController: UIViewController, ViewControllable {
     }
     
     private func action() {
-        increaseButton.publisher(for: .touchUpInside)
+        increaseButton
+            .publisher(for: .touchUpInside)
             .sink { [weak self] _ in
-                self?.widgetService.incrementCount(kind: .increase)
+                self?.widgetService.calculateCount(operation: .sum)
             }
             .store(in: self.cancelBag)
         
-        decreaseButton.publisher(for: .touchUpInside)
+        decreaseButton
+            .publisher(for: .touchUpInside)
             .sink { [weak self] _ in
-                self?.widgetService.decrementCount(kind: .increase)
+                self?.widgetService.calculateCount(operation: .minus)
+            }
+            .store(in: self.cancelBag)
+        
+        transitionButton
+            .publisher(for: .touchUpInside)
+            .sink { [weak self] _ in
+                let viewController = ImageViewController(imageService: WidgetHelper())
+                self?.navigationController?.pushViewController(viewController, animated: true)
             }
             .store(in: self.cancelBag)
     }
 }
 
-private extension ViewController {
+private extension CalculateViewController {
     func setStyle() {
-        self.view.addSubview(self.increaseButton)
         self.increaseButton.backgroundColor = .red
-        
-        self.view.addSubview(self.decreaseButton)
         self.decreaseButton.backgroundColor = .blue
+        self.transitionButton.backgroundColor = .white
     }
     
     func setLayout() {
+        self.view.addSubview(self.increaseButton)
+        self.view.addSubview(self.decreaseButton)
+        self.view.addSubview(self.transitionButton)
+
         self.increaseButton.translatesAutoresizingMaskIntoConstraints = false
         self.increaseButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50).isActive = true
         self.increaseButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
@@ -71,5 +85,11 @@ private extension ViewController {
         self.decreaseButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         self.decreaseButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         self.decreaseButton.widthAnchor.constraint(equalToConstant: 50).isActive = true 
+        
+        self.transitionButton.translatesAutoresizingMaskIntoConstraints = false
+        self.transitionButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        self.transitionButton.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        self.transitionButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        self.transitionButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
     }
 }

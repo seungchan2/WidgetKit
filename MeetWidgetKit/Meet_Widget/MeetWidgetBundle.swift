@@ -11,6 +11,7 @@ import SwiftUI
 @main
 struct Meet_WidgetBundle: WidgetBundle {
     var body: some Widget {
-        Meet_Widget()
+        CalculateWidget()
+        DogImageWidget()
     }
 }

@@ -92,6 +92,26 @@
             value = "systemMedium"
             isEnabled = "YES">
          </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "_XCWidgetKind"
+            value = "image"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "_XCWidgetKind"
+            value = "increase"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "_XCWidgetKind"
+            value = "CalculateWidget"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "_XCWidgetKind"
+            value = "DogImageWidget"
+            isEnabled = "YES">
+         </EnvironmentVariable>
       </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
