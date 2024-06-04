@@ -7,28 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D59326C2C0ED25300DE34B5 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 6D59326B2C0ED25300DE34B5 /* Core */; };
+		6D59326E2C0ED37D00DE34B5 /* CombineModule in Frameworks */ = {isa = PBXBuildFile; productRef = 6D59326D2C0ED37D00DE34B5 /* CombineModule */; };
+		6D5932702C0ED38000DE34B5 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 6D59326F2C0ED38000DE34B5 /* Core */; };
+		6D5932742C0ED38900DE34B5 /* RxSwiftModule in Frameworks */ = {isa = PBXBuildFile; productRef = 6D5932732C0ED38900DE34B5 /* RxSwiftModule */; };
 		6D60ACC52C06BB4800B4852E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D60ACC42C06BB4800B4852E /* AppDelegate.swift */; };
 		6D60ACC72C06BB4800B4852E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D60ACC62C06BB4800B4852E /* SceneDelegate.swift */; };
-		6D60ACC92C06BB4800B4852E /* CalculateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D60ACC82C06BB4800B4852E /* CalculateViewController.swift */; };
 		6D60ACCE2C06BB4A00B4852E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D60ACCD2C06BB4A00B4852E /* Assets.xcassets */; };
 		6D60ACD12C06BB4A00B4852E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D60ACCF2C06BB4A00B4852E /* LaunchScreen.storyboard */; };
 		6D60ACDC2C06BB4A00B4852E /* MeetWidgetKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D60ACDB2C06BB4A00B4852E /* MeetWidgetKitTests.swift */; };
 		6D60ACE62C06BB4A00B4852E /* MeetWidgetKitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D60ACE52C06BB4A00B4852E /* MeetWidgetKitUITests.swift */; };
 		6D60ACE82C06BB4A00B4852E /* MeetWidgetKitUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D60ACE72C06BB4A00B4852E /* MeetWidgetKitUITestsLaunchTests.swift */; };
-		6D60ACF52C06C0EC00B4852E /* CancelBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D60ACF42C06C0EC00B4852E /* CancelBag.swift */; };
-		6D60ACF72C06C14800B4852E /* Combine+Publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D60ACF62C06C14800B4852E /* Combine+Publisher.swift */; };
-		6D60ACF92C06C45C00B4852E /* ViewControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D60ACF82C06C45C00B4852E /* ViewControllable.swift */; };
 		6D60AD1C2C06EB2D00B4852E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D60AD002C06EAEB00B4852E /* WidgetKit.framework */; };
 		6D60AD1D2C06EB2D00B4852E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D60AD022C06EAEB00B4852E /* SwiftUI.framework */; };
 		6D60AD202C06EB2D00B4852E /* MeetWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D60AD1F2C06EB2D00B4852E /* MeetWidgetBundle.swift */; };
 		6D60AD242C06EB2D00B4852E /* CalculateWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D60AD232C06EB2D00B4852E /* CalculateWidget.swift */; };
 		6D60AD282C06EB2F00B4852E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D60AD272C06EB2F00B4852E /* Assets.xcassets */; };
 		6D60AD2C2C06EB2F00B4852E /* Meet_WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 6D60AD1B2C06EB2D00B4852E /* Meet_WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		6D60AD332C06EE6E00B4852E /* WidgetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D60AD322C06EE6E00B4852E /* WidgetHelper.swift */; };
-		6D60AD342C06EE6E00B4852E /* WidgetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D60AD322C06EE6E00B4852E /* WidgetHelper.swift */; };
 		6D60AD382C080A2900B4852E /* DogImageWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D60AD372C080A2900B4852E /* DogImageWidget.swift */; };
 		6D60AD3A2C080C7700B4852E /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D60AD392C080C7700B4852E /* ImageViewController.swift */; };
-		ECC5AD232C084D8100BD25FF /* DogImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC5AD222C084D8100BD25FF /* DogImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,10 +67,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6D5932662C0ECD4500DE34B5 /* CombineModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CombineModule; sourceTree = "<group>"; };
+		6D5932672C0ED00D00DE34B5 /* RxSwiftModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RxSwiftModule; sourceTree = "<group>"; };
+		6D5932692C0ED0D700DE34B5 /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Core; path = ../../Core; sourceTree = "<group>"; };
+		6D5932752C0ED5BD00DE34B5 /* NetworkModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = NetworkModule; sourceTree = "<group>"; };
 		6D60ACC12C06BB4800B4852E /* MeetWidgetKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetWidgetKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D60ACC42C06BB4800B4852E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D60ACC62C06BB4800B4852E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6D60ACC82C06BB4800B4852E /* CalculateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateViewController.swift; sourceTree = "<group>"; };
 		6D60ACCD2C06BB4A00B4852E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D60ACD02C06BB4A00B4852E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6D60ACD22C06BB4A00B4852E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,9 +82,6 @@
 		6D60ACE12C06BB4A00B4852E /* MeetWidgetKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeetWidgetKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D60ACE52C06BB4A00B4852E /* MeetWidgetKitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetWidgetKitUITests.swift; sourceTree = "<group>"; };
 		6D60ACE72C06BB4A00B4852E /* MeetWidgetKitUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetWidgetKitUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		6D60ACF42C06C0EC00B4852E /* CancelBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelBag.swift; sourceTree = "<group>"; };
-		6D60ACF62C06C14800B4852E /* Combine+Publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Publisher.swift"; sourceTree = "<group>"; };
-		6D60ACF82C06C45C00B4852E /* ViewControllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllable.swift; sourceTree = "<group>"; };
 		6D60AD002C06EAEB00B4852E /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		6D60AD022C06EAEB00B4852E /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		6D60AD1B2C06EB2D00B4852E /* Meet_WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Meet_WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,10 +91,8 @@
 		6D60AD292C06EB2F00B4852E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D60AD302C06EBF600B4852E /* MeetWidgetKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MeetWidgetKit.entitlements; sourceTree = "<group>"; };
 		6D60AD312C06EC1B00B4852E /* Meet_WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Meet_WidgetExtension.entitlements; sourceTree = "<group>"; };
-		6D60AD322C06EE6E00B4852E /* WidgetHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetHelper.swift; sourceTree = "<group>"; };
 		6D60AD372C080A2900B4852E /* DogImageWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogImageWidget.swift; sourceTree = "<group>"; };
 		6D60AD392C080C7700B4852E /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
-		ECC5AD222C084D8100BD25FF /* DogImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +100,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D59326E2C0ED37D00DE34B5 /* CombineModule in Frameworks */,
+				6D5932742C0ED38900DE34B5 /* RxSwiftModule in Frameworks */,
+				6D5932702C0ED38000DE34B5 /* Core in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +126,7 @@
 			files = (
 				6D60AD1D2C06EB2D00B4852E /* SwiftUI.framework in Frameworks */,
 				6D60AD1C2C06EB2D00B4852E /* WidgetKit.framework in Frameworks */,
+				6D59326C2C0ED25300DE34B5 /* Core in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,10 +161,13 @@
 			isa = PBXGroup;
 			children = (
 				6D60AD302C06EBF600B4852E /* MeetWidgetKit.entitlements */,
+				6D5932752C0ED5BD00DE34B5 /* NetworkModule */,
+				6D5932692C0ED0D700DE34B5 /* Core */,
+				6D5932672C0ED00D00DE34B5 /* RxSwiftModule */,
+				6D5932662C0ECD4500DE34B5 /* CombineModule */,
 				ECC5AD1D2C084C3200BD25FF /* App */,
 				ECC5AD212C084CB700BD25FF /* Feature */,
 				ECC5AD202C084C9100BD25FF /* Support */,
-				ECC5AD1E2C084C4700BD25FF /* Core */,
 			);
 			path = MeetWidgetKit;
 			sourceTree = "<group>";
@@ -217,16 +219,6 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		ECC5AD1E2C084C4700BD25FF /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				6D60ACF82C06C45C00B4852E /* ViewControllable.swift */,
-				6D60ACF62C06C14800B4852E /* Combine+Publisher.swift */,
-				6D60ACF42C06C0EC00B4852E /* CancelBag.swift */,
-			);
-			path = Core;
-			sourceTree = "<group>";
-		};
 		ECC5AD202C084C9100BD25FF /* Support */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,10 +232,7 @@
 		ECC5AD212C084CB700BD25FF /* Feature */ = {
 			isa = PBXGroup;
 			children = (
-				6D60AD322C06EE6E00B4852E /* WidgetHelper.swift */,
-				6D60ACC82C06BB4800B4852E /* CalculateViewController.swift */,
 				6D60AD392C080C7700B4852E /* ImageViewController.swift */,
-				ECC5AD222C084D8100BD25FF /* DogImage.swift */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -266,6 +255,11 @@
 				6D60AD2B2C06EB2F00B4852E /* PBXTargetDependency */,
 			);
 			name = MeetWidgetKit;
+			packageProductDependencies = (
+				6D59326D2C0ED37D00DE34B5 /* CombineModule */,
+				6D59326F2C0ED38000DE34B5 /* Core */,
+				6D5932732C0ED38900DE34B5 /* RxSwiftModule */,
+			);
 			productName = MeetWidgetKit;
 			productReference = 6D60ACC12C06BB4800B4852E /* MeetWidgetKit.app */;
 			productType = "com.apple.product-type.application";
@@ -319,6 +313,9 @@
 			dependencies = (
 			);
 			name = Meet_WidgetExtension;
+			packageProductDependencies = (
+				6D59326B2C0ED25300DE34B5 /* Core */,
+			);
 			productName = Meet_WidgetExtension;
 			productReference = 6D60AD1B2C06EB2D00B4852E /* Meet_WidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -358,6 +355,8 @@
 				Base,
 			);
 			mainGroup = 6D60ACB82C06BB4800B4852E;
+			packageReferences = (
+			);
 			productRefGroup = 6D60ACC22C06BB4800B4852E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -409,13 +408,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D60ACC92C06BB4800B4852E /* CalculateViewController.swift in Sources */,
-				6D60ACF92C06C45C00B4852E /* ViewControllable.swift in Sources */,
-				6D60ACF72C06C14800B4852E /* Combine+Publisher.swift in Sources */,
-				6D60AD332C06EE6E00B4852E /* WidgetHelper.swift in Sources */,
-				ECC5AD232C084D8100BD25FF /* DogImage.swift in Sources */,
 				6D60ACC52C06BB4800B4852E /* AppDelegate.swift in Sources */,
-				6D60ACF52C06C0EC00B4852E /* CancelBag.swift in Sources */,
 				6D60AD3A2C080C7700B4852E /* ImageViewController.swift in Sources */,
 				6D60ACC72C06BB4800B4852E /* SceneDelegate.swift in Sources */,
 			);
@@ -442,7 +435,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D60AD342C06EE6E00B4852E /* WidgetHelper.swift in Sources */,
 				6D60AD382C080A2900B4852E /* DogImageWidget.swift in Sources */,
 				6D60AD242C06EB2D00B4852E /* CalculateWidget.swift in Sources */,
 				6D60AD202C06EB2D00B4852E /* MeetWidgetBundle.swift in Sources */,
@@ -841,6 +833,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6D59326B2C0ED25300DE34B5 /* Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Core;
+		};
+		6D59326D2C0ED37D00DE34B5 /* CombineModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CombineModule;
+		};
+		6D59326F2C0ED38000DE34B5 /* Core */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Core;
+		};
+		6D5932732C0ED38900DE34B5 /* RxSwiftModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RxSwiftModule;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6D60ACB92C06BB4800B4852E /* Project object */;
 }

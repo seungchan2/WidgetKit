@@ -8,6 +8,8 @@
 import WidgetKit
 import SwiftUI
 
+import Core
+
 struct CalculateProvider: TimelineProvider {
     func placeholder(in context: Context) -> CalculateEntry {
         CalculateEntry(date: Date(), count: WidgetHelper().load())

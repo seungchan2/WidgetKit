@@ -7,6 +7,10 @@
 
 import UIKit
 
+import CombineModule
+import RxSwiftModule
+import Core
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
@@ -14,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = UINavigationController(rootViewController: CalculateViewController(widgetService: WidgetHelper()))
+        window?.rootViewController = UINavigationController(rootViewController: CalculateViewController_Combine(viewModel: CalculateViewModel_Combine(service: WidgetHelper())))
         window?.makeKeyAndVisible()
     }
     
@@ -32,8 +36,8 @@ extension SceneDelegate {
         if url.scheme == "meetWidget" {
             if url.host == "image" {
                 if !rootViewController.viewControllers.contains(where: { $0 is ImageViewController }) {
-                    let secondViewController = ImageViewController(imageService: WidgetHelper())
-                    rootViewController.pushViewController(secondViewController, animated: true)
+//                    let secondViewController = ImageViewController(imageService: WidgetHelper())
+//                    rootViewController.pushViewController(secondViewController, animated: true)
                 }
             }
         }

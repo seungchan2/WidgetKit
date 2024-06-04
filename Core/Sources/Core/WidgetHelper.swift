@@ -9,42 +9,45 @@ import WidgetKit
 import UIKit
 
 @frozen
-enum AppGroup: String, CaseIterable {
+public enum AppGroup: String, CaseIterable {
     case app = "group.MeetWidget"
     case calculate = "CalculateWidget"
     case image = "DogImageWidget"
 }
 
 @frozen
-enum Operation: CaseIterable {
+public enum OP: CaseIterable {
     case sum
     case minus
 }
 
-protocol CalculateHelperImpl {
-    func calculateCount(operation: Operation)
+public protocol CalculateHelperImpl {
+    func calculateCount(operation: OP)
 }
 
-protocol DogImageHelperImpl {
+public protocol DogImageHelperImpl {
     func save(image: UIImage, kind: AppGroup)
 }
 
-final class WidgetHelper: CalculateHelperImpl, DogImageHelperImpl {
-    func save(count: Int, kind: AppGroup = .calculate) {
+public final class WidgetHelper: CalculateHelperImpl, DogImageHelperImpl {
+    
+    public init() {}
+    
+    public func save(count: Int, kind: AppGroup = .calculate) {
         if let defaults = UserDefaults.init(suiteName: AppGroup.app.rawValue) {
             defaults.set(count, forKey: kind.rawValue)
         }
         self.reloadWidget(kind: .calculate)
     }
     
-    func save(image: UIImage, kind: AppGroup = .image) {
+    public func save(image: UIImage, kind: AppGroup = .image) {
         if let defaults = UserDefaults.init(suiteName: AppGroup.app.rawValue), let data = image.pngData() {
             defaults.set(data, forKey: kind.rawValue)
         }
         self.reloadWidget(kind: kind)
     }
     
-    func load(kind: AppGroup = .calculate) -> Int {
+    public func load(kind: AppGroup = .calculate) -> Int {
         if let defaults = UserDefaults.init(suiteName: AppGroup.app.rawValue) {
             return defaults.integer(forKey: kind.rawValue)
         } else {
@@ -52,7 +55,7 @@ final class WidgetHelper: CalculateHelperImpl, DogImageHelperImpl {
         }
     }
     
-    func loadImage(kind: AppGroup = .image) -> UIImage? {
+    public func loadImage(kind: AppGroup = .image) -> UIImage? {
         if let defaults = UserDefaults(suiteName: AppGroup.app.rawValue),
            let data = defaults.data(forKey: kind.rawValue) {
             return UIImage(data: data)
@@ -60,7 +63,7 @@ final class WidgetHelper: CalculateHelperImpl, DogImageHelperImpl {
         return nil
     }
     
-    func calculateCount(operation: Operation) {
+    public func calculateCount(operation: OP) {
         let currentCount = load(kind: .calculate)
         var count = 0
         switch operation {

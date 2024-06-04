@@ -10,6 +10,8 @@ import Foundation
 import WidgetKit
 import SwiftUI
 
+import Core
+
 struct DogImageProvider: TimelineProvider {
     func placeholder(in context: Context) -> DogImageEntry {
         DogImageEntry(date: Date(), image: WidgetHelper().loadImage() ?? UIImage())

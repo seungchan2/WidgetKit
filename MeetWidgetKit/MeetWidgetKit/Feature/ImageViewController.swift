@@ -8,14 +8,17 @@
 import Combine
 import UIKit
 
-final class ImageViewController: UIViewController, ViewControllable {
+import Core
+import NetworkModule
+
+public final class ImageViewController: UIViewController, ViewControllable {
     private lazy var imageView = UIImageView()
     private lazy var fetchButton = UIButton()
     private let cancelBag = CancelBag()
 
     private let imageService: DogImageHelperImpl
     
-    init(imageService: DogImageHelperImpl) {
+    public init(imageService: DogImageHelperImpl) {
         self.imageService = imageService
         super.init(nibName: nil, bundle: nil)
     }
@@ -24,7 +27,7 @@ final class ImageViewController: UIViewController, ViewControllable {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setBackgroundColor()

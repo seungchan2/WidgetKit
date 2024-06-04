@@ -8,25 +8,25 @@
 import Network
 import UIKit
 
-typealias ViewControllable = ViewControllerSupportImpl & NetworkMonitorImpl
+public typealias ViewControllable = ViewControllerSupportImpl & NetworkMonitorImpl
 
-protocol ViewControllerSupportImpl {}
+public protocol ViewControllerSupportImpl {}
 
 extension ViewControllerSupportImpl where Self: UIViewController {
-    func setBackgroundColor() {
+    public func setBackgroundColor() {
         self.view.backgroundColor = .white
     }
 }
 
-protocol NetworkMonitorImpl {}
+public protocol NetworkMonitorImpl {}
 
 extension NetworkMonitorImpl where Self: UIViewController {
-    func startMonitoringNetwork() {
+    public func startMonitoringNetwork() {
         let monitor = NWPathMonitor()
         let queue = DispatchQueue(label: "NetworkMonitor")
         monitor.pathUpdateHandler = { path in
             DispatchQueue.main.async {
-                self.view.backgroundColor = path.status == .satisfied ? .green : .yellow
+                self.view.backgroundColor = path.status == .satisfied ? .white : .yellow
             }
         }
         monitor.start(queue: queue)

@@ -5,21 +5,28 @@
 //  Created by MEGA_Mac on 2024/05/29.
 //
 
-import Combine
 import UIKit
 
-final class CalculateViewController: UIViewController, ViewControllable {
+import RxSwift
+import RxCocoa
+
+import Core
+
+final class CalculateViewController_Rx: UIViewController, ViewControllable {
     
     private lazy var increaseButton = UIButton()
     private lazy var decreaseButton = UIButton()
     private lazy var transitionButton = UIButton()
-    private let widgetService: CalculateHelperImpl
+    private let countLabel = UILabel()
     
-    init(widgetService: CalculateHelperImpl) {
-        self.widgetService = widgetService
+    private var viewModel: CalculateViewModel_Rx
+    private let disposeBag = DisposeBag()
+    
+    init(viewModel: CalculateViewModel_Rx) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
-    
+  
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -34,44 +41,46 @@ final class CalculateViewController: UIViewController, ViewControllable {
         self.setLayout()
         self.startMonitoringNetwork()
         self.action()
+        self.bind()
     }
     
     private func action() {
-        increaseButton
-            .publisher(for: .touchUpInside)
-            .sink { [weak self] _ in
-                self?.widgetService.calculateCount(operation: .sum)
-            }
-            .store(in: self.cancelBag)
-        
-        decreaseButton
-            .publisher(for: .touchUpInside)
-            .sink { [weak self] _ in
-                self?.widgetService.calculateCount(operation: .minus)
-            }
-            .store(in: self.cancelBag)
-        
+
         transitionButton
             .publisher(for: .touchUpInside)
             .sink { [weak self] _ in
-                let viewController = ImageViewController(imageService: WidgetHelper())
-                self?.navigationController?.pushViewController(viewController, animated: true)
+//                let viewController = ImageViewController(imageService: WidgetHelper())
+//                self?.navigationController?.pushViewController(viewController, animated: true)
             }
             .store(in: self.cancelBag)
     }
+    
+    private func bind() {
+        let input = CalculateViewModel_Rx.Input(didIncreaseButtonTapped: increaseButton.rx.tap.asObservable().map { .sum },
+                                                didDecreaseButtonTapped: decreaseButton.rx.tap.asObservable().map { .minus })
+        
+        let output = viewModel.transform(input: input, disposeBag: disposeBag)
+        
+        output.tappedCount
+            .drive(with: self) { owner, count in
+                owner.countLabel.text = "\(count)"
+            }
+            .disposed(by: self.disposeBag)
+    }
 }
 
-private extension CalculateViewController {
+private extension CalculateViewController_Rx {
     func setStyle() {
         self.increaseButton.backgroundColor = .red
         self.decreaseButton.backgroundColor = .blue
-        self.transitionButton.backgroundColor = .white
+        self.transitionButton.backgroundColor = .green
     }
     
     func setLayout() {
         self.view.addSubview(self.increaseButton)
         self.view.addSubview(self.decreaseButton)
         self.view.addSubview(self.transitionButton)
+        self.view.addSubview(self.countLabel)
         
         self.increaseButton.translatesAutoresizingMaskIntoConstraints = false
         self.increaseButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 50).isActive = true
@@ -90,5 +99,9 @@ private extension CalculateViewController {
         self.transitionButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20).isActive = true
         self.transitionButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -50).isActive = true
         self.transitionButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        self.countLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.countLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        self.countLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
     }
 }

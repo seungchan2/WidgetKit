@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DogImage: Codable {
-    let message: String
-    let status: String
+public struct DogImage: Codable {
+    public let message: String
+    public let status: String
 }
