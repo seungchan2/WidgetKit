@@ -10,6 +10,7 @@ import UIKit
 import CombineModule
 import RxSwiftModule
 import Core
+import NetworkModule
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -35,9 +36,9 @@ extension SceneDelegate {
         }
         if url.scheme == "meetWidget" {
             if url.host == "image" {
-                if !rootViewController.viewControllers.contains(where: { $0 is ImageViewController }) {
-//                    let secondViewController = ImageViewController(imageService: WidgetHelper())
-//                    rootViewController.pushViewController(secondViewController, animated: true)
+                if !rootViewController.viewControllers.contains(where: { $0 is DogViewController_Rx }) {
+                    let secondViewController = DogViewController_Rx(viewModel: DogViewModel_Rx(service: NetworkService_Rx()))
+                    rootViewController.pushViewController(secondViewController, animated: true)
                 }
             }
         }

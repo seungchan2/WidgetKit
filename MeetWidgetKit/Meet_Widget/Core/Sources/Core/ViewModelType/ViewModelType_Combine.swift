@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Core
-
 public protocol ViewModelType_Combine {
     associatedtype Input
     associatedtype Output

@@ -1,8 +1,8 @@
 //
-//  ImageViewController.swift
-//  MeetWidgetKit
+//  ImageViewController_Combine.swift
 //
-//  Created by MEGA_Mac on 2024/05/30.
+//
+//  Created by MEGA_Mac on 2024/06/04.
 //
 
 import Combine
@@ -11,15 +11,15 @@ import UIKit
 import Core
 import NetworkModule
 
-public final class ImageViewController: UIViewController, ViewControllable {
+public final class DogImageViewController_Combine: UIViewController, ViewControllable {
     private lazy var imageView = UIImageView()
     private lazy var fetchButton = UIButton()
     private let cancelBag = CancelBag()
 
-    private let imageService: DogImageHelperImpl
+    private let viewModel: DogViewModel_Combine
     
-    public init(imageService: DogImageHelperImpl) {
-        self.imageService = imageService
+    public init(viewModel: DogViewModel_Combine) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -33,46 +33,24 @@ public final class ImageViewController: UIViewController, ViewControllable {
         self.setBackgroundColor()
         self.setStyle()
         self.setLayout()
-        self.action()
+        self.bind()
     }
-    
-    private func action() {
-        self.fetchButton
-            .publisher(for: .touchUpInside)
-            .debounce(for: 0.5, scheduler: RunLoop.main)
-            .sink { _ in
-                self.fetch()
-            }
-            .store(in: self.cancelBag)
-    }
-    
-    private func fetch() {
-        guard let url = URL(string: "https://dog.ceo/api/breeds/image/random") else { return }
+   
+    private func bind() {
+        let input = DogViewModel_Combine.Input(didFetchButtonTapped: self.fetchButton.publisher(for: .touchUpInside).mapVoid().eraseToAnyPublisher())
         
-        URLSession.shared.dataTaskPublisher(for: url)
-            .tryMap { (data, response) -> Data in
-                return data
-            }
-            .decode(type: DogImage.self, decoder: JSONDecoder())
-            .compactMap { URL(string: $0.message) }
-            .flatMap { imageUrl in
-                URLSession.shared.dataTaskPublisher(for: imageUrl)
-                    .map { $0.data }
-                    .catch { _ in Just(Data()) }
-            }
-            .map { UIImage(data: $0) }
-            .replaceError(with: nil)
-            .receive(on: DispatchQueue.main)
+        let output = viewModel.transform(input: input, cancelBag: self.cancelBag)
+        
+        output.fetchedDogImage
             .sink { [weak self] image in
-                guard let self, let image else { return }
+                guard let self else { return }
                 self.imageView.image = image
-                self.imageService.save(image: image, kind: .image)
             }
             .store(in: self.cancelBag)
     }
 }
 
-private extension ImageViewController {
+private extension DogImageViewController_Combine {
     func setStyle() {
         self.fetchButton.backgroundColor = .yellow
     }

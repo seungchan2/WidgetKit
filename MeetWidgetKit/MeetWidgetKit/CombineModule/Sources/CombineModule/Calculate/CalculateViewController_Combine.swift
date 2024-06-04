@@ -9,6 +9,7 @@ import Combine
 import UIKit
 
 import Core
+import NetworkModule
 
 public final class CalculateViewController_Combine: UIViewController, ViewControllable {
     
@@ -45,8 +46,8 @@ public final class CalculateViewController_Combine: UIViewController, ViewContro
         transitionButton
             .publisher(for: .touchUpInside)
             .sink { [weak self] _ in
-//                let viewController = ImageViewController(imageService: WidgetHelper())
-//                self?.navigationController?.pushViewController(viewController, animated: true)
+                let viewController = DogImageViewController_Combine(viewModel: DogViewModel_Combine(service: NetworkService_Combine()))
+                self?.navigationController?.pushViewController(viewController, animated: true)
             }
             .store(in: self.cancelBag)
     }

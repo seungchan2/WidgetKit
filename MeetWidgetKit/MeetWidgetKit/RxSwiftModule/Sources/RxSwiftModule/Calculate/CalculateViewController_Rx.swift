@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 
 import Core
+import NetworkModule
 
 final class CalculateViewController_Rx: UIViewController, ViewControllable {
     
@@ -49,8 +50,8 @@ final class CalculateViewController_Rx: UIViewController, ViewControllable {
         transitionButton
             .publisher(for: .touchUpInside)
             .sink { [weak self] _ in
-//                let viewController = ImageViewController(imageService: WidgetHelper())
-//                self?.navigationController?.pushViewController(viewController, animated: true)
+                let viewController = DogViewController_Rx(viewModel: DogViewModel_Rx(service: NetworkService_Rx()))
+                self?.navigationController?.pushViewController(viewController, animated: true)
             }
             .store(in: self.cancelBag)
     }
