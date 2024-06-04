@@ -26,7 +26,7 @@ extension NetworkMonitorImpl where Self: UIViewController {
         let queue = DispatchQueue(label: "NetworkMonitor")
         monitor.pathUpdateHandler = { path in
             DispatchQueue.main.async {
-                self.view.backgroundColor = path.status == .satisfied ? .white : .yellow
+                self.view.backgroundColor = path.status == .satisfied ? .white : .red
             }
         }
         monitor.start(queue: queue)
