@@ -37,8 +37,8 @@ public final class CalculateViewModel_Combine: ViewModelType_Combine {
             .asDriver()
             .sink { [weak self] operation in
                 guard let self else { return }
-                let currentCount = WidgetHelper().load()
                 self.service.calculateCount(operation: operation)
+                let currentCount = WidgetHelper().load()
                 tappedCount.send(currentCount)
             }
               .store(in: self.cancelBag)
