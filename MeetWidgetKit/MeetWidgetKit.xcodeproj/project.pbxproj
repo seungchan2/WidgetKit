@@ -69,7 +69,7 @@
 /* Begin PBXFileReference section */
 		6D5932662C0ECD4500DE34B5 /* CombineModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CombineModule; sourceTree = "<group>"; };
 		6D5932672C0ED00D00DE34B5 /* RxSwiftModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RxSwiftModule; sourceTree = "<group>"; };
-		6D5932692C0ED0D700DE34B5 /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Core; sourceTree = "<group>"; };
+		6D5932692C0ED0D700DE34B5 /* Core */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Core; path = ../Meet_Widget/Core; sourceTree = "<group>"; };
 		6D5932752C0ED5BD00DE34B5 /* NetworkModule */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = NetworkModule; sourceTree = "<group>"; };
 		6D60ACC12C06BB4800B4852E /* MeetWidgetKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetWidgetKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D60ACC42C06BB4800B4852E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
