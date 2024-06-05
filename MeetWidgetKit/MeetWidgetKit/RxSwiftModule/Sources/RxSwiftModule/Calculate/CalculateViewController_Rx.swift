@@ -46,7 +46,6 @@ final class CalculateViewController_Rx: UIViewController, ViewControllable {
     }
     
     private func action() {
-
         transitionButton
             .publisher(for: .touchUpInside)
             .sink { [weak self] _ in
