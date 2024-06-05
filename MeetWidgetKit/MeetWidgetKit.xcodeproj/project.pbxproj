@@ -26,6 +26,7 @@
 		6D60AD2C2C06EB2F00B4852E /* Meet_WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 6D60AD1B2C06EB2D00B4852E /* Meet_WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6D60AD382C080A2900B4852E /* DogImageWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D60AD372C080A2900B4852E /* DogImageWidget.swift */; };
 		6DA66EFA2C0EE04300D7F676 /* NetworkModule in Frameworks */ = {isa = PBXBuildFile; productRef = 6DA66EF92C0EE04300D7F676 /* NetworkModule */; };
+		ECC5AD4F2C1047B400BD25FF /* BaseDependency in Frameworks */ = {isa = PBXBuildFile; productRef = ECC5AD4E2C1047B400BD25FF /* BaseDependency */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		6D60AD302C06EBF600B4852E /* MeetWidgetKit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MeetWidgetKit.entitlements; sourceTree = "<group>"; };
 		6D60AD312C06EC1B00B4852E /* Meet_WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Meet_WidgetExtension.entitlements; sourceTree = "<group>"; };
 		6D60AD372C080A2900B4852E /* DogImageWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogImageWidget.swift; sourceTree = "<group>"; };
+		ECC5AD4D2C10457500BD25FF /* BaseDependency */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = BaseDependency; path = MeetWidgetKit/BaseDependency; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D59326E2C0ED37D00DE34B5 /* CombineModule in Frameworks */,
+				ECC5AD4F2C1047B400BD25FF /* BaseDependency in Frameworks */,
 				6DA66EFA2C0EE04300D7F676 /* NetworkModule in Frameworks */,
 				6D5932742C0ED38900DE34B5 /* RxSwiftModule in Frameworks */,
 				6D5932702C0ED38000DE34B5 /* Core in Frameworks */,
@@ -166,7 +169,7 @@
 				6D5932672C0ED00D00DE34B5 /* RxSwiftModule */,
 				6D5932662C0ECD4500DE34B5 /* CombineModule */,
 				ECC5AD1D2C084C3200BD25FF /* App */,
-				ECC5AD212C084CB700BD25FF /* Feature */,
+				ECC5AD4C2C1043D500BD25FF /* DIContainer */,
 				ECC5AD202C084C9100BD25FF /* Support */,
 			);
 			path = MeetWidgetKit;
@@ -213,6 +216,7 @@
 		ECC5AD1D2C084C3200BD25FF /* App */ = {
 			isa = PBXGroup;
 			children = (
+				ECC5AD4D2C10457500BD25FF /* BaseDependency */,
 				6D60ACC42C06BB4800B4852E /* AppDelegate.swift */,
 				6D60ACC62C06BB4800B4852E /* SceneDelegate.swift */,
 			);
@@ -229,11 +233,11 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
-		ECC5AD212C084CB700BD25FF /* Feature */ = {
+		ECC5AD4C2C1043D500BD25FF /* DIContainer */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Feature;
+			path = DIContainer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +263,7 @@
 				6D59326F2C0ED38000DE34B5 /* Core */,
 				6D5932732C0ED38900DE34B5 /* RxSwiftModule */,
 				6DA66EF92C0EE04300D7F676 /* NetworkModule */,
+				ECC5AD4E2C1047B400BD25FF /* BaseDependency */,
 			);
 			productName = MeetWidgetKit;
 			productReference = 6D60ACC12C06BB4800B4852E /* MeetWidgetKit.app */;
@@ -853,6 +858,10 @@
 		6DA66EF92C0EE04300D7F676 /* NetworkModule */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = NetworkModule;
+		};
+		ECC5AD4E2C1047B400BD25FF /* BaseDependency */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BaseDependency;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

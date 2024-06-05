@@ -15,6 +15,7 @@ public protocol NetworkServiceCombineImpl {
 }
 
 public final class NetworkService_Combine: NetworkServiceCombineImpl {
+    public static let shared = NetworkService_Combine()
     public init() {}
     
     private var cancelBag = CancelBag()

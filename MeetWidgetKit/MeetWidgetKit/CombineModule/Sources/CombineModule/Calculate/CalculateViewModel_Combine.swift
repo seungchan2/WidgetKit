@@ -11,7 +11,7 @@ import Foundation
 import Core
 
 public final class CalculateViewModel_Combine: ViewModelType_Combine {
-    
+
     private var service: CalculateHelperImpl
     public var cancelBag = CancelBag()
 

@@ -17,6 +17,8 @@ public protocol NetworkServiceRxImpl {
 }
 
 public final class NetworkService_Rx: NetworkServiceRxImpl {
+    public static let shared = NetworkService_Rx()
+
     public init() {}
     
     public func fetch() -> Single<UIImage?> {

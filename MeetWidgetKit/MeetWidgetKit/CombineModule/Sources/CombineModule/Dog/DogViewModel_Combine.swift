@@ -12,14 +12,9 @@ import Core
 import NetworkModule
 
 public final class DogViewModel_Combine: ViewModelType_Combine {
-    
+    @Injected private var service: NetworkServiceCombineImpl
     public var cancelBag = CancelBag()
-    private let service: NetworkServiceCombineImpl
-    
-    public init(service: NetworkServiceCombineImpl) {
-        self.service = service
-    }
-    
+
     public struct Input {
         let didFetchButtonTapped: AnyPublisher<Void, Never>
     }
