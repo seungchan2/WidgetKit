@@ -20,7 +20,7 @@ public class DependencyStore {
     /// A map of `identifier(for:)` to initializers
     private var store: [Identifier: () -> Any] = [:]
     
-    public func register<T>(_ factory: @escaping () -> T) {
+    public func register<T>(_ factory: @autoclosure @escaping () -> T) {
         let id = identifier(for: T.self)
         store[id] = factory
     }

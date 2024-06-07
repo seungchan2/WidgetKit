@@ -19,12 +19,12 @@ extension DependencyStore {
     }
     
     public func registerRxCalculateViewController() -> UIViewController {
-        self.register { CalculateViewController_Rx(viewModel: CalculateViewModel_Rx()) }
+        self.register(CalculateViewController_Rx(viewModel: CalculateViewModel_Rx()))
         return self.resolve() as CalculateViewController_Rx
     }
     
     public func registerRxDogViewController() -> UIViewController {
-        self.register { DogViewController_Rx(viewModel: DogViewModel_Rx()) }
+        self.register(DogViewController_Rx(viewModel: DogViewModel_Rx()))
         return self.resolve() as DogViewController_Rx
     }
 }
