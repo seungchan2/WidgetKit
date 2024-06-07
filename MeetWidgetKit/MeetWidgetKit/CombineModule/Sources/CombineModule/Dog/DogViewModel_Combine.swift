@@ -27,7 +27,7 @@ public final class DogViewModel_Combine: ViewModelType_Combine {
     public func transform(input: Input, cancelBag: CancelBag) -> Output {
         let fetchedDogImage = input.didFetchButtonTapped
             .flatMap { [weak self] _ -> AnyPublisher<UIImage?, Never> in
-                guard let self = self else { return Just(nil).eraseToAnyPublisher() }
+                guard let self else { return Just(nil).eraseToAnyPublisher() }
                 return self.service.fetch()
                     .asDriver()
             }
