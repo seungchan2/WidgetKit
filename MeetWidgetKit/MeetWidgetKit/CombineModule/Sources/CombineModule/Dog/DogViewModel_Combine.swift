@@ -15,6 +15,7 @@ public final class DogViewModel_Combine: ViewModelType_Combine {
     @Injected private var service: NetworkServiceCombineImpl
     public var cancelBag = CancelBag()
 
+    public init() {}
     public struct Input {
         let didFetchButtonTapped: AnyPublisher<Void, Never>
     }

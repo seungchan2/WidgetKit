@@ -13,8 +13,8 @@ import RxCocoa
 import Core
 import NetworkModule
 
-final class CalculateViewController_Rx: UIViewController, ViewControllable {
-    
+public final class CalculateViewController_Rx: UIViewController, ViewControllable {
+    private let dependencyContainer = DependencyStore.shared
     private lazy var increaseButton = UIButton()
     private lazy var decreaseButton = UIButton()
     private lazy var transitionButton = UIButton()
@@ -23,7 +23,7 @@ final class CalculateViewController_Rx: UIViewController, ViewControllable {
     private var viewModel: CalculateViewModel_Rx
     private let disposeBag = DisposeBag()
     
-    init(viewModel: CalculateViewModel_Rx) {
+    public init(viewModel: CalculateViewModel_Rx) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -34,7 +34,7 @@ final class CalculateViewController_Rx: UIViewController, ViewControllable {
     
     private let cancelBag = CancelBag()
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setStyle()
@@ -49,8 +49,9 @@ final class CalculateViewController_Rx: UIViewController, ViewControllable {
         transitionButton
             .publisher(for: .touchUpInside)
             .sink { [weak self] _ in
-                let viewController = DogViewController_Rx(viewModel: DogViewModel_Rx(service: NetworkService_Rx()))
-                self?.navigationController?.pushViewController(viewController, animated: true)
+                guard let self else { return }
+                let viewController = self.dependencyContainer.registerRxDogViewController()
+                self.navigationController?.pushViewController(viewController, animated: true)
             }
             .store(in: self.cancelBag)
     }

@@ -16,13 +16,9 @@ import RxCocoa
 public final class DogViewModel_Rx: ViewModelType_Rx {
     
     public var disposeBag = DisposeBag()
-    private let service: NetworkServiceRxImpl
-    
-    
-    public init(service: NetworkServiceRxImpl) {
-        self.service = service
-    }
-    
+    @Injected private var service: NetworkServiceRxImpl
+
+    public init() {}
     public struct Input {
         let didFetchButtonTapped: Observable<Void>
     }

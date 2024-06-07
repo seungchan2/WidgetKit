@@ -12,24 +12,22 @@ import RxCocoa
 
 import Core
 
-final class CalculateViewModel_Rx: ViewModelType_Rx {
+public final class CalculateViewModel_Rx: ViewModelType_Rx {
     
-    private var service: CalculateHelperImpl
-    var disposeBag = DisposeBag()
+    @Injected private var service: CalculateHelperImpl
+    public var disposeBag = DisposeBag()
 
-    init(service: CalculateHelperImpl) {
-        self.service = service
-    }
+    public init() {}
     
-    struct Input {
-        let didIncreaseButtonTapped: Observable<OP>
-        let didDecreaseButtonTapped: Observable<OP>
+    public struct Input {
+        let didIncreaseButtonTapped: Observable<Operators>
+        let didDecreaseButtonTapped: Observable<Operators>
     }
-    struct Output {
+    public struct Output {
         let tappedCount: Driver<Int>
     }
     
-    func transform(input: Input, disposeBag: DisposeBag) -> Output {
+    public func transform(input: Input, disposeBag: DisposeBag) -> Output {
         
         let tappedCount = BehaviorRelay(value: WidgetHelper().load())
         

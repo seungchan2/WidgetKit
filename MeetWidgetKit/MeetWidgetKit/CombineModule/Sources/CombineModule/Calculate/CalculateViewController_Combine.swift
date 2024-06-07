@@ -13,6 +13,7 @@ import NetworkModule
 
 public final class CalculateViewController_Combine: UIViewController, ViewControllable {
     
+    private let dependencyContainer = DependencyStore.shared
     private lazy var increaseButton = UIButton()
     private lazy var decreaseButton = UIButton()
     private lazy var transitionButton = UIButton()
@@ -46,8 +47,9 @@ public final class CalculateViewController_Combine: UIViewController, ViewContro
         transitionButton
             .publisher(for: .touchUpInside)
             .sink { [weak self] _ in
-//                let viewController = DogImageViewController_Combine(viewModel: DogViewModel_Combine(service: NetworkService_Combine()))
-//                self?.navigationController?.pushViewController(viewController, animated: true)
+                guard let self else { return }
+                let viewController = self.dependencyContainer.registerCombineDogViewController()
+                self.navigationController?.pushViewController(viewController, animated: true)
             }
             .store(in: self.cancelBag)
     }

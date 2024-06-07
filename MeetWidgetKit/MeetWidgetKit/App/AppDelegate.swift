@@ -7,7 +7,6 @@
 
 import UIKit
 
-import BaseDependency
 import Core
 
 @main

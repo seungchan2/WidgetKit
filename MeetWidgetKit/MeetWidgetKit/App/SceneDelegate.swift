@@ -16,10 +16,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
     
+    private let dependencyContainer = DependencyStore.shared
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = UINavigationController(rootViewController: CalculateViewController_Combine(viewModel: CalculateViewModel_Combine(service: WidgetHelper())))
+        window?.rootViewController = UINavigationController(rootViewController: dependencyContainer.registerRxCalculateViewController())
         window?.makeKeyAndVisible()
     }
     
@@ -37,7 +39,7 @@ extension SceneDelegate {
         if url.scheme == "meetWidget" {
             if url.host == "image" {
                 if !rootViewController.viewControllers.contains(where: { $0 is DogViewController_Rx }) {
-                    let secondViewController = DogViewController_Rx(viewModel: DogViewModel_Rx(service: NetworkService_Rx()))
+                    let secondViewController = dependencyContainer.registerRxCalculateViewController()
                     rootViewController.pushViewController(secondViewController, animated: true)
                 }
             }

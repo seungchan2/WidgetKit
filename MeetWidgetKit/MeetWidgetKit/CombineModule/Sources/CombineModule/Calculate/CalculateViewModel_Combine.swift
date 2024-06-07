@@ -12,16 +12,14 @@ import Core
 
 public final class CalculateViewModel_Combine: ViewModelType_Combine {
 
-    private var service: CalculateHelperImpl
+    @Injected private var service: CalculateHelperImpl
     public var cancelBag = CancelBag()
-
-    public init(service: CalculateHelperImpl) {
-        self.service = service
-    }
+    
+    public init() {}
     
     public struct Input {
-        let didIncreaseButtonTapped: AnyPublisher<OP, Never>
-        let didDecreaseButtonTapped: AnyPublisher<OP, Never>
+        let didIncreaseButtonTapped: AnyPublisher<Operators, Never>
+        let didDecreaseButtonTapped: AnyPublisher<Operators, Never>
     }
     public struct Output {
         let tappedCount: CombineDriver<Int>

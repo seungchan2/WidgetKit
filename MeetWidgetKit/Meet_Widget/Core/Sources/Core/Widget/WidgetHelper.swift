@@ -16,13 +16,13 @@ public enum AppGroup: String, CaseIterable {
 }
 
 @frozen
-public enum OP: CaseIterable {
+public enum Operators: CaseIterable {
     case sum
     case minus
 }
 
 public protocol CalculateHelperImpl {
-    func calculateCount(operation: OP)
+    func calculateCount(operation: Operators)
 }
 
 public protocol DogImageHelperImpl {
@@ -31,6 +31,7 @@ public protocol DogImageHelperImpl {
 
 public final class WidgetHelper: CalculateHelperImpl, DogImageHelperImpl {
     
+    public static let shared = WidgetHelper()
     public init() {}
     
     public func save(count: Int, kind: AppGroup = .calculate) {
@@ -63,7 +64,7 @@ public final class WidgetHelper: CalculateHelperImpl, DogImageHelperImpl {
         return nil
     }
     
-    public func calculateCount(operation: OP) {
+    public func calculateCount(operation: Operators) {
         let currentCount = load(kind: .calculate)
         var count = 0
         switch operation {
