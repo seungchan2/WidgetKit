@@ -39,7 +39,7 @@ extension SceneDelegate {
         if url.scheme == "meetWidget" {
             if url.host == "image" {
                 if !rootViewController.viewControllers.contains(where: { $0 is DogViewController_Rx }) {
-                    let secondViewController = dependencyContainer.registerRxCalculateViewController()
+                    let secondViewController = dependencyContainer.registerRxDogViewController()
                     rootViewController.pushViewController(secondViewController, animated: true)
                 }
             }
