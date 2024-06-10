@@ -73,8 +73,11 @@ public final class CalculateViewController_Rx: UIViewController, ViewControllabl
 private extension CalculateViewController_Rx {
     func setStyle() {
         self.increaseButton.backgroundColor = .red
+        self.increaseButton.setTitle("+", for: .normal)
         self.decreaseButton.backgroundColor = .blue
-        self.transitionButton.backgroundColor = .green
+        self.decreaseButton.setTitle("-", for: .normal)
+        self.transitionButton.backgroundColor = .black
+        self.transitionButton.setTitle("다음으로", for: .normal)
     }
     
     func setLayout() {

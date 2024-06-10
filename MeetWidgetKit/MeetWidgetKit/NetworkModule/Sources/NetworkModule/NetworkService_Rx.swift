@@ -18,7 +18,8 @@ public protocol NetworkServiceRxImpl {
 
 public final class NetworkService_Rx: NetworkServiceRxImpl {
     public static let shared = NetworkService_Rx()
-
+    @Injected private var service: ImageGeneratorImpl
+    
     public init() {}
     
     public func fetch() -> Single<UIImage?> {
@@ -37,6 +38,10 @@ public final class NetworkService_Rx: NetworkServiceRxImpl {
                     .catchAndReturn(Data())
             }
             .map { UIImage(data: $0) }
+            .do(onNext: { [weak self] image in
+                guard let self, let image else { return }
+                self.service.save(image: image, kind: .image) 
+            })
             .catchAndReturn(nil)
             .asSingle()
     }

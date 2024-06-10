@@ -14,7 +14,7 @@ extension DependencyStore {
     public func registerAll() {
         register(NetworkService_Rx.shared, for: NetworkServiceRxImpl.self)
         register(NetworkService_Combine.shared, for: NetworkServiceCombineImpl.self)
-        register(WidgetHelper.shared, for: DogImageHelperImpl.self)
+        register(WidgetHelper.shared, for: ImageGeneratorImpl.self)
         register(WidgetHelper.shared, for: CalculateHelperImpl.self)
     }
     

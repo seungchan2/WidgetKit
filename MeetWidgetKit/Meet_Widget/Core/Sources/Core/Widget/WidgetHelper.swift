@@ -25,11 +25,11 @@ public protocol CalculateHelperImpl {
     func calculateCount(operation: Operators)
 }
 
-public protocol DogImageHelperImpl {
+public protocol ImageGeneratorImpl {
     func save(image: UIImage, kind: AppGroup)
 }
 
-public final class WidgetHelper: CalculateHelperImpl, DogImageHelperImpl {
+public final class WidgetHelper: CalculateHelperImpl, ImageGeneratorImpl {
     
     public static let shared = WidgetHelper()
     public init() {}

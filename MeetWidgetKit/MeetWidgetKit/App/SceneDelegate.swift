@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = UINavigationController(rootViewController: dependencyContainer.registerRxCalculateViewController())
+        window?.rootViewController = UINavigationController(rootViewController: dependencyContainer.registerCombineViewController())
         window?.makeKeyAndVisible()
     }
     
@@ -38,9 +38,9 @@ extension SceneDelegate {
         }
         if url.scheme == "meetWidget" {
             if url.host == "image" {
-                if !rootViewController.viewControllers.contains(where: { $0 is DogViewController_Rx }) {
-                    let secondViewController = dependencyContainer.registerRxDogViewController()
-                    rootViewController.pushViewController(secondViewController, animated: true)
+                if !rootViewController.viewControllers.contains(where: { $0 is DogImageViewController_Combine }) {
+                    let destination = dependencyContainer.registerCombineDogViewController()
+                    rootViewController.pushViewController(destination, animated: true)
                 }
             }
         }

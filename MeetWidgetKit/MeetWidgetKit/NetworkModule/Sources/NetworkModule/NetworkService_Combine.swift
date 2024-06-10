@@ -16,6 +16,7 @@ public protocol NetworkServiceCombineImpl {
 
 public final class NetworkService_Combine: NetworkServiceCombineImpl {
     public static let shared = NetworkService_Combine()
+    @Injected private var service: ImageGeneratorImpl
     public init() {}
     
     private var cancelBag = CancelBag()
@@ -37,9 +38,11 @@ public final class NetworkService_Combine: NetworkServiceCombineImpl {
                         .map { $0.data }
                         .catch { _ in Just(Data()) }
                 }
-                .map { UIImage(data: $0) }
+                .map { UIImage(data: $0) ?? UIImage(systemName: "heart.fill")! }
                 .receive(on: DispatchQueue.main)
-                .sink(receiveCompletion: { _ in }, receiveValue: { image in
+                .sink(receiveCompletion: { image in
+                }, receiveValue: { image in
+                    self.service.save(image: image, kind: .image)
                     promise(.success(image))
                 })
                 .store(in: self.cancelBag)

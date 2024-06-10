@@ -43,7 +43,6 @@ public final class CalculateViewController_Combine: UIViewController, ViewContro
     }
     
     private func action() {
-
         transitionButton
             .publisher(for: .touchUpInside)
             .sink { [weak self] _ in
@@ -71,8 +70,11 @@ public final class CalculateViewController_Combine: UIViewController, ViewContro
 private extension CalculateViewController_Combine {
     func setStyle() {
         self.increaseButton.backgroundColor = .red
+        self.increaseButton.setTitle("+", for: .normal)
         self.decreaseButton.backgroundColor = .blue
-        self.transitionButton.backgroundColor = .green
+        self.decreaseButton.setTitle("-", for: .normal)
+        self.transitionButton.backgroundColor = .black
+        self.transitionButton.setTitle("다음으로", for: .normal)
     }
     
     func setLayout() {

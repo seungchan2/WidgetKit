@@ -29,10 +29,9 @@ public final class DogViewModel_Combine: ViewModelType_Combine {
             .flatMap { [weak self] _ -> AnyPublisher<UIImage?, Never> in
                 guard let self else { return Just(nil).eraseToAnyPublisher() }
                 return self.service.fetch()
-                    .asDriver()
+                    .eraseToAnyPublisher()
             }
-            .receive(on: DispatchQueue.main)
-            .eraseToAnyPublisher()
+            .asDriver()
         
         return Output(fetchedDogImage: fetchedDogImage)
     }

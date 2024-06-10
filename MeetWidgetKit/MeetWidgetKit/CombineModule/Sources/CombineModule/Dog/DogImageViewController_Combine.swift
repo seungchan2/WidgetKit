@@ -52,7 +52,10 @@ public final class DogImageViewController_Combine: UIViewController, ViewControl
 
 private extension DogImageViewController_Combine {
     func setStyle() {
-        self.fetchButton.backgroundColor = .yellow
+        self.fetchButton.backgroundColor = .black
+        self.fetchButton.setTitle("이미지 생성", for: .normal)
+        self.imageView.backgroundColor = .cyan  
+        self.imageView.image = WidgetHelper().loadImage()
     }
     
     func setLayout() {
