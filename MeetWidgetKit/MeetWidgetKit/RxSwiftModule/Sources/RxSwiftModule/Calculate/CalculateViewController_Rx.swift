@@ -16,11 +16,6 @@ import NetworkModule
 public final class CalculateViewController_Rx: UIViewController, ViewControllable {
     private let dependencyContainer = DependencyStore.shared
     private let originView = CalculateView()
-    private lazy var increaseButton = UIButton()
-    private lazy var decreaseButton = UIButton()
-    private lazy var transitionButton = UIButton()
-    private let countLabel = UILabel()
-    
     private var viewModel: CalculateViewModel_Rx
     private let disposeBag = DisposeBag()
     

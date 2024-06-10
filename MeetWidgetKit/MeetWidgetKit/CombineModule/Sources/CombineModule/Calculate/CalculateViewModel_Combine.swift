@@ -32,7 +32,6 @@ public final class CalculateViewModel_Combine: ViewModelType_Combine {
             .merge(with: input.didDecreaseButtonTapped)
           
           mergedPublisher
-            .asDriver()
             .sink { [weak self] operation in
                 guard let self else { return }
                 self.service.calculateCount(operation: operation)
