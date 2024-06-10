@@ -12,11 +12,14 @@ import Core
 import NetworkModule
 
 public final class DogImageViewController_Combine: UIViewController, ViewControllable {
-    private lazy var imageView = UIImageView()
-    private lazy var fetchButton = UIButton()
+    
+    private let originView = DogView()
     private let cancelBag = CancelBag()
-
     private let viewModel: DogViewModel_Combine
+    
+    public override func loadView() {
+        self.view = originView
+    }
     
     public init(viewModel: DogViewModel_Combine) {
         self.viewModel = viewModel
@@ -31,46 +34,16 @@ public final class DogImageViewController_Combine: UIViewController, ViewControl
         super.viewDidLoad()
         
         self.setBackgroundColor()
-        self.setStyle()
-        self.setLayout()
         self.bind()
     }
    
     private func bind() {
-        let input = DogViewModel_Combine.Input(didFetchButtonTapped: self.fetchButton.publisher(for: .touchUpInside).mapVoid().eraseToAnyPublisher())
+        let input = DogViewModel_Combine.Input(didFetchButtonTapped: self.originView.fetchButtonPublisher)
         
         let output = viewModel.transform(input: input, cancelBag: self.cancelBag)
         
         output.fetchedDogImage
-            .sink { [weak self] image in
-                guard let self else { return }
-                self.imageView.image = image
-            }
+            .subscribe(self.originView.fetchedImagePublisher)
             .store(in: self.cancelBag)
-    }
-}
-
-private extension DogImageViewController_Combine {
-    func setStyle() {
-        self.fetchButton.backgroundColor = .black
-        self.fetchButton.setTitle("이미지 생성", for: .normal)
-        self.imageView.backgroundColor = .cyan  
-        self.imageView.image = WidgetHelper().loadImage()
-    }
-    
-    func setLayout() {
-        self.view.addSubview(self.imageView)
-        self.imageView.translatesAutoresizingMaskIntoConstraints = false
-        self.imageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-        self.imageView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-        self.imageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        self.imageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        
-        self.view.addSubview(self.fetchButton)
-        self.fetchButton.translatesAutoresizingMaskIntoConstraints = false
-        self.fetchButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -50).isActive = true
-        self.fetchButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20).isActive = true
-        self.fetchButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20).isActive = true
-        self.fetchButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
 }
