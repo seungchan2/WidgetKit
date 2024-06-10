@@ -16,6 +16,7 @@ import RxCocoa
 public final class DogViewModel_Rx: ViewModelType_Rx {
     
     public var disposeBag = DisposeBag()
+    // MARK: DogRandomAPI 네트워크 protocol
     @Injected private var service: NetworkServiceRxImpl
 
     public init() {}
@@ -29,6 +30,7 @@ public final class DogViewModel_Rx: ViewModelType_Rx {
     
     public func transform(input: Input, disposeBag: DisposeBag) -> Output {
         
+        // MARK: ViewController fetchButton 이벤트 시, API 호출 (throttle로 중복 제거)
         let dogImage = input.didFetchButtonTapped
             .debounce(.milliseconds(300), scheduler: MainScheduler.instance)
             .flatMapLatest { [weak self] _ -> Single<UIImage?> in

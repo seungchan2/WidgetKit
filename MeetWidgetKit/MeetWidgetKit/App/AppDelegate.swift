@@ -13,6 +13,7 @@ import Core
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        // MARK: Dependency 등록
         DependencyStore.shared.registerAll()
 
         return true

@@ -29,6 +29,7 @@ public final class CalculateView: UIView {
     }
 }
 
+// MARK: Rx ViewController에서 사용할 이벤트 정의 protection level -> fileprivate
 extension Reactive where Base: CalculateView {
     public var increaseButtonTapped: Observable<Operators> {
         return base.increaseButton.rx.tap
@@ -49,6 +50,7 @@ extension Reactive where Base: CalculateView {
     }
 }
 
+// MARK: Combine
 extension CalculateView {
     public var increaseButtonPublisher: AnyPublisher<Operators, Never> {
         increaseButton.publisher(for: .touchUpInside)

@@ -31,9 +31,7 @@ public final class CalculateViewController_Rx: UIViewController, ViewControllabl
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    private let cancelBag = CancelBag()
-    
+        
     public override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,6 +42,7 @@ public final class CalculateViewController_Rx: UIViewController, ViewControllabl
     }
     
     private func action() {
+        // MARK: DogImageViewController 화면 전환
         originView.rx.transitionButtonTapped
             .subscribe(with: self) { owner, _ in
                 let viewController = owner.dependencyContainer.registerRxDogViewController()
@@ -53,11 +52,13 @@ public final class CalculateViewController_Rx: UIViewController, ViewControllabl
     }
     
     private func bind() {
+        // MARK: +, - 버튼 이벤트 전달
         let input = CalculateViewModel_Rx.Input(didIncreaseButtonTapped: originView.rx.increaseButtonTapped,
                                                 didDecreaseButtonTapped: originView.rx.decreaseButtonTapped)
         
         let output = viewModel.transform(input: input, disposeBag: disposeBag)
         
+        // MARK: 증가한 카운트 횟수 UI 업데이트
         output.tappedCount
             .map { "\($0)" }
             .drive(originView.rx.tappedCount)

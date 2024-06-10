@@ -18,6 +18,7 @@ public protocol NetworkServiceRxImpl {
 
 public final class NetworkService_Rx: NetworkServiceRxImpl {
     public static let shared = NetworkService_Rx()
+    // MARK: Widget에서 보여줄 이미지를 저장하는 protocol
     @Injected private var service: ImageGeneratorImpl
     
     public init() {}
@@ -40,7 +41,8 @@ public final class NetworkService_Rx: NetworkServiceRxImpl {
             .map { UIImage(data: $0) }
             .do(onNext: { [weak self] image in
                 guard let self, let image else { return }
-                self.service.save(image: image, kind: .image) 
+                // MARK: Widget에서 보여줄 이미지 저장
+                self.service.save(image: image, kind: .image)
             })
             .catchAndReturn(nil)
             .asSingle()

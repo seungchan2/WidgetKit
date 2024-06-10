@@ -36,6 +36,7 @@ extension SceneDelegate {
         guard let rootViewController = window?.rootViewController as? UINavigationController else {
             return
         }
+        // MARK: DogWidget에서 설정한 scheme에 따라 앱의 시작점 정의하는 코드
         if url.scheme == "meetWidget" {
             if url.host == "image" {
                 if !rootViewController.viewControllers.contains(where: { $0 is DogImageViewController_Combine }) {

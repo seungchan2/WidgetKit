@@ -40,10 +40,12 @@ public final class DogViewController_Rx: UIViewController, ViewControllable {
     }
     
     private func bind() {
+        // MARK: DogRandomAPI 호출 이벤트
         let input = DogViewModel_Rx.Input(didFetchButtonTapped: self.originView.rx.fetchButtonTapped)
         
         let output = viewModel.transform(input: input, disposeBag: self.disposeBag)
         
+        // MARK: DogRandomAPI 호출된 이미지로 UI 업데이트 진행
         output.fetchedDogImage
             .drive(originView.rx.fetchedDogImage)
             .disposed(by: self.disposeBag)
