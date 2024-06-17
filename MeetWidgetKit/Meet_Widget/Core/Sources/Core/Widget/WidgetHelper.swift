@@ -80,19 +80,20 @@ public final class WidgetHelper: CalculateHelperImpl, ImageGeneratorImpl {
         return nil
     }
     
-    // MARK: 저장된 카운트 횟수를 Operators에 따라 다시 계산
-    public func calculateCount(operation: Operators) {
-        let currentCount = load(kind: .calculate)
-        var count = 0
+    private func calculateNewCount(currentCount: Int, operation: Operators) -> Int {
         switch operation {
         case .sum:
-            let newCount = currentCount + 1
-            count = newCount
+            return currentCount + 1
         case .minus:
-            let newCount = currentCount - 1
-            count = newCount
+            return currentCount - 1
         }
-        save(count: count)
+    }
+
+    // MARK: Sprout Method
+    public func calculateCount(operation: Operators) {
+        let currentCount = load(kind: .calculate)
+        let newCount = calculateNewCount(currentCount: currentCount, operation: operation)
+        save(count: newCount)
     }
 }
 
