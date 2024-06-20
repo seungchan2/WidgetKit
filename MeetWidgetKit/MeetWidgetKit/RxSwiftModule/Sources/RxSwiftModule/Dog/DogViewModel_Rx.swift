@@ -10,6 +10,7 @@ import UIKit
 import Core
 import NetworkModule
 
+import ChanLog
 import RxSwift
 import RxCocoa
 
@@ -18,6 +19,7 @@ public final class DogViewModel_Rx: ViewModelType_Rx {
     public var disposeBag = DisposeBag()
     // MARK: DogRandomAPI 네트워크 protocol
     @Injected private var service: NetworkServiceRxImpl
+    @Injected private var moyaService: DogServiceType
 
     public init() {}
     public struct Input {
@@ -38,6 +40,19 @@ public final class DogViewModel_Rx: ViewModelType_Rx {
                 return self.service.fetch()
             }
             .asDriver(onErrorJustReturn: UIImage(named: "heart.fill"))
+        
+        moyaService
+            .getDogImage()
+            .subscribe(with: self) { owner, data in
+                ChanLog.custom(category: "Network",
+                               "RxMoya를 사용한 강아지 이미지 가져오기", 
+                               data.message)
+                ChanLog.custom(category: "Network",
+                               "RxMoya를 사용한 강아지 이미지 가져오기",
+                               data.status)
+            }
+            .disposed(by: self.disposeBag)
+        
         
         return Output(fetchedDogImage: dogImage)
     }

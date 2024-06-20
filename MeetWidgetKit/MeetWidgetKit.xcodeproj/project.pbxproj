@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6D59326C2C0ED25300DE34B5 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 6D59326B2C0ED25300DE34B5 /* Core */; };
-		6D59326E2C0ED37D00DE34B5 /* CombineModule in Frameworks */ = {isa = PBXBuildFile; productRef = 6D59326D2C0ED37D00DE34B5 /* CombineModule */; };
 		6D5932702C0ED38000DE34B5 /* Core in Frameworks */ = {isa = PBXBuildFile; productRef = 6D59326F2C0ED38000DE34B5 /* Core */; };
-		6D5932742C0ED38900DE34B5 /* RxSwiftModule in Frameworks */ = {isa = PBXBuildFile; productRef = 6D5932732C0ED38900DE34B5 /* RxSwiftModule */; };
 		6D60ACC52C06BB4800B4852E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D60ACC42C06BB4800B4852E /* AppDelegate.swift */; };
 		6D60ACC72C06BB4800B4852E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D60ACC62C06BB4800B4852E /* SceneDelegate.swift */; };
 		6D60ACCE2C06BB4A00B4852E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D60ACCD2C06BB4A00B4852E /* Assets.xcassets */; };
@@ -27,7 +25,9 @@
 		6D60AD382C080A2900B4852E /* DogImageWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D60AD372C080A2900B4852E /* DogImageWidget.swift */; };
 		6D85BB012C1FCBD400B8CFBF /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 6D85BB002C1FCBD400B8CFBF /* Nimble */; };
 		6D85BB042C1FCBEE00B8CFBF /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 6D85BB032C1FCBEE00B8CFBF /* Quick */; };
-		6DA66EFA2C0EE04300D7F676 /* NetworkModule in Frameworks */ = {isa = PBXBuildFile; productRef = 6DA66EF92C0EE04300D7F676 /* NetworkModule */; };
+		6D85BB192C229FF700B8CFBF /* CombineModule in Frameworks */ = {isa = PBXBuildFile; productRef = 6D85BB182C229FF700B8CFBF /* CombineModule */; };
+		6D85BB1B2C229FFC00B8CFBF /* NetworkModule in Frameworks */ = {isa = PBXBuildFile; productRef = 6D85BB1A2C229FFC00B8CFBF /* NetworkModule */; };
+		6D85BB1D2C22A00000B8CFBF /* RxSwiftModule in Frameworks */ = {isa = PBXBuildFile; productRef = 6D85BB1C2C22A00000B8CFBF /* RxSwiftModule */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,10 +101,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D59326E2C0ED37D00DE34B5 /* CombineModule in Frameworks */,
-				6DA66EFA2C0EE04300D7F676 /* NetworkModule in Frameworks */,
-				6D5932742C0ED38900DE34B5 /* RxSwiftModule in Frameworks */,
+				6D85BB192C229FF700B8CFBF /* CombineModule in Frameworks */,
 				6D5932702C0ED38000DE34B5 /* Core in Frameworks */,
+				6D85BB1D2C22A00000B8CFBF /* RxSwiftModule in Frameworks */,
+				6D85BB1B2C229FFC00B8CFBF /* NetworkModule in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,6 +195,7 @@
 		6D60ACFF2C06EAEB00B4852E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6D5273862C22B857008ACF14 /* OSLog.framework */,
 				6D60AD002C06EAEB00B4852E /* WidgetKit.framework */,
 				6D60AD022C06EAEB00B4852E /* SwiftUI.framework */,
 			);
@@ -251,10 +252,10 @@
 			);
 			name = MeetWidgetKit;
 			packageProductDependencies = (
-				6D59326D2C0ED37D00DE34B5 /* CombineModule */,
 				6D59326F2C0ED38000DE34B5 /* Core */,
-				6D5932732C0ED38900DE34B5 /* RxSwiftModule */,
-				6DA66EF92C0EE04300D7F676 /* NetworkModule */,
+				6D85BB182C229FF700B8CFBF /* CombineModule */,
+				6D85BB1A2C229FFC00B8CFBF /* NetworkModule */,
+				6D85BB1C2C22A00000B8CFBF /* RxSwiftModule */,
 			);
 			productName = MeetWidgetKit;
 			productReference = 6D60ACC12C06BB4800B4852E /* MeetWidgetKit.app */;
@@ -532,7 +533,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = ChanLog;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -861,17 +862,9 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = Core;
 		};
-		6D59326D2C0ED37D00DE34B5 /* CombineModule */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = CombineModule;
-		};
 		6D59326F2C0ED38000DE34B5 /* Core */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Core;
-		};
-		6D5932732C0ED38900DE34B5 /* RxSwiftModule */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RxSwiftModule;
 		};
 		6D85BB002C1FCBD400B8CFBF /* Nimble */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -883,9 +876,17 @@
 			package = 6D85BB022C1FCBEE00B8CFBF /* XCRemoteSwiftPackageReference "Quick" */;
 			productName = Quick;
 		};
-		6DA66EF92C0EE04300D7F676 /* NetworkModule */ = {
+		6D85BB182C229FF700B8CFBF /* CombineModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CombineModule;
+		};
+		6D85BB1A2C229FFC00B8CFBF /* NetworkModule */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = NetworkModule;
+		};
+		6D85BB1C2C22A00000B8CFBF /* RxSwiftModule */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RxSwiftModule;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

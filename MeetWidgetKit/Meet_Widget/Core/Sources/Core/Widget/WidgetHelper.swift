@@ -8,6 +8,8 @@
 import WidgetKit
 import UIKit
 
+import ChanLog
+
 /*
  MARK: App Groups 및 Widget kind enum
  */
@@ -49,6 +51,7 @@ public final class WidgetHelper: CalculateHelperImpl, ImageGeneratorImpl {
     // MARK: CalculateViewController +,- 버튼 클릭 시, 횟수 저장 -> 앱에서 사용
     public func save(count: Int, kind: AppGroup = .calculate) {
         if let defaults = UserDefaults.init(suiteName: AppGroup.app.rawValue) {
+            ChanLog.info("+,- 버튼 클릭 시, 횟수 저장", count)
             defaults.set(count, forKey: kind.rawValue)
         }
         self.reloadWidget(kind: .calculate)
@@ -57,6 +60,7 @@ public final class WidgetHelper: CalculateHelperImpl, ImageGeneratorImpl {
     // MARK: DogViewController 이미지 버튼 클릭 시, 이미지 저장 -> 앱에서 사용
     public func save(image: UIImage, kind: AppGroup = .image) {
         if let defaults = UserDefaults.init(suiteName: AppGroup.app.rawValue), let data = image.pngData() {
+            ChanLog.info("이미지 버튼 클릭 시, 이미지 저장", data)
             defaults.set(data, forKey: kind.rawValue)
         }
         self.reloadWidget(kind: kind)
@@ -93,6 +97,7 @@ public final class WidgetHelper: CalculateHelperImpl, ImageGeneratorImpl {
     public func calculateCount(operation: Operators) {
         let currentCount = load(kind: .calculate)
         let newCount = calculateNewCount(currentCount: currentCount, operation: operation)
+        ChanLog.info("발아 메소드, 현재 횟수", newCount)
         save(count: newCount)
     }
 }

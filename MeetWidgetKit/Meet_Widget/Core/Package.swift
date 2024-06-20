@@ -16,7 +16,9 @@ let package = Package(
             targets: ["Core"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/ReactiveX/RxSwift.git", .upToNextMajor(from: "6.7.1"))
+        .package(url: "https://github.com/ReactiveX/RxSwift.git", .upToNextMajor(from: "6.7.1")),
+        .package(url: "https://github.com/Moya/Moya.git", .upToNextMajor(from: "15.0.3")),
+        .package(url: "https://github.com/seungchan2/ChanLog.git", branch: "main")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -26,7 +28,10 @@ let package = Package(
             dependencies: [
                 "RxSwift",
                 .product(name: "RxCocoa", package: "RxSwift"),
-                .product(name: "RxBlocking", package: "RxSwift")
+                .product(name: "RxBlocking", package: "RxSwift"),
+                "Moya",
+                .product(name: "RxMoya", package: "Moya"),
+                "ChanLog"
         ]),
         .testTarget(
             name: "CoreTests",
