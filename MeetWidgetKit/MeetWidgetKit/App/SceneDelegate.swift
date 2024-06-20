@@ -21,7 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = UINavigationController(rootViewController: dependencyContainer.registerCombineViewController())
+        window?.rootViewController = UINavigationController(rootViewController: dependencyContainer.registerRxCalculateViewController())
         window?.makeKeyAndVisible()
     }
     
@@ -39,8 +39,8 @@ extension SceneDelegate {
         // MARK: DogWidget에서 설정한 scheme에 따라 앱의 시작점 정의하는 코드
         if url.scheme == "meetWidget" {
             if url.host == "image" {
-                if !rootViewController.viewControllers.contains(where: { $0 is DogImageViewController_Combine }) {
-                    let destination = dependencyContainer.registerCombineDogViewController()
+                if !rootViewController.viewControllers.contains(where: { $0 is DogViewController_Rx }) {
+                    let destination = dependencyContainer.registerRxDogViewController()
                     rootViewController.pushViewController(destination, animated: true)
                 }
             }
