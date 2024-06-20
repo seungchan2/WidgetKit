@@ -16,6 +16,7 @@ extension DependencyStore {
         register(NetworkService_Combine.shared, for: NetworkServiceCombineImpl.self)
         register(WidgetHelper.shared, for: ImageGeneratorImpl.self)
         register(WidgetHelper.shared, for: CalculateHelperImpl.self)
+        register(DogService.shared, for: DogServiceType.self)
     }
     
     public func registerRxCalculateViewController() -> UIViewController {
