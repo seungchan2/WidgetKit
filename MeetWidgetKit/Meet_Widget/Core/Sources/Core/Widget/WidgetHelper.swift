@@ -98,7 +98,7 @@ public final class WidgetHelper: CalculateHelperImpl, ImageGeneratorImpl {
         let currentCount = load(kind: .calculate)
         let newCount = calculateNewCount(currentCount: currentCount, operation: operation)
         newCount.info("현재 횟수")
-        newCount.info("현재 횟수", newCount)
+        newCount.minInfo("현재 횟수")
         save(count: newCount)
     }
 }
