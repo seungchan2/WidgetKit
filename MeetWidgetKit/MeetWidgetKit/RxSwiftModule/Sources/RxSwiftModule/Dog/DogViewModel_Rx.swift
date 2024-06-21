@@ -44,12 +44,8 @@ public final class DogViewModel_Rx: ViewModelType_Rx {
         moyaService
             .getDogImage()
             .subscribe(with: self) { owner, data in
-                ChanLog.custom(category: "Network",
-                               "RxMoya를 사용한 강아지 이미지 가져오기", 
-                               data.message)
-                ChanLog.custom(category: "Network",
-                               "RxMoya를 사용한 강아지 이미지 가져오기",
-                               data.status)
+                data.message.info("data.message")
+                data.status.info("data.status")
             }
             .disposed(by: self.disposeBag)
         
